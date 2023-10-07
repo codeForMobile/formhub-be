@@ -37,6 +37,7 @@
     "db:console": "docker compose exec postgres psql -h localhost -U postgres -d webapp_dev",
     "rebuild:be": "docker compose build backend && docker compose rm --stop backend && docker compose up -d backend",
     "db:migrate": "knex migrate:latest",
-    "docker:db:migrate": "docker compose run backend yarn db:migrate"
+    "docker:db:migrate": "docker compose run backend yarn db:migrate",
+    "build:prisma": "prisma generate && yarn rebuild:be"
   }
 }

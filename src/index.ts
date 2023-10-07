@@ -6,17 +6,15 @@ import { v4 as uuidv4 } from 'uuid'
 const db = new PrismaClient({log: ['error', 'info', 'query', 'warn']})
 
 const seedDatabase = async () => {
-    if((await db.post.count()) === 0) {
-        await db.post.createMany({
+    if((await db.submissions.count()) === 0) {
+        await db.submissions.createMany({
             data: [{
                 id: uuidv4(),
-                slug: 'ultimate-node-stack',
-                title: 'ultimate node stack 2022',
-                publishedAt: new Date(),
-            },{
-                id: uuidv4(),
-                slug: 'draft post',
-                title: 'draft post'
+                data: {
+                    name: 'kevin',
+                    twitter: 'kevinfb'
+                },
+                submittedAt: new Date(),
             }]
         })
     }
@@ -27,8 +25,8 @@ const app = express()
 app.use(morgan('dev'))
 
 app.get('/', async (req,res) => {
-    const posts = await db.post.findMany()
-    res.json(posts)
+    const submissions = await db.submissions.findMany()
+    res.json(submissions)
 })
 
 const port = Number(process.env.PORT ?? 8080)
