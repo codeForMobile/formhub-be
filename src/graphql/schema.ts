@@ -8,6 +8,10 @@ const schema = gql`
         submissions: [Submissions!]!
     }
 
+    type Mutation {
+        queueSubmissionGeneration: Boolean!
+    }
+
     type Submissions {
         id: ID!,
         submittedAt: DateTime!,
