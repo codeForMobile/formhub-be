@@ -9,7 +9,7 @@ const schema = gql`
     }
 
     type Mutation {
-        queueSubmissionGeneration: Boolean!
+        queueSubmissionGeneration(count: Int): Boolean!
     }
 
     type Submissions {
