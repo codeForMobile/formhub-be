@@ -19,3 +19,7 @@ A `nodejs` based backend running as docker container.
 - `rebuild:be` only rebuild backend, if made any changes or install/change new deps
 - `docker:db:migrate` to generate db structure (table) in db
 - `build:prisma` to generate typescript types to further facilitate development
+
+### How does it look from graphQL designer
+
+![ui](form-hub-turborepo.png)
